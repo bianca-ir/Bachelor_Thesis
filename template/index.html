@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Breast Cancer Analyzer</title>
+  <link rel="stylesheet" href="../static/styles.css">
+ 
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Breast Cancer Analyzer</h1>
+    <input type="file" id="uploadBtn" style="display: none;">
+  
+  <label for="uploadBtn" class="btn">Choose Image</label> 
+    <div class="image-container"> 
+        <img id="uploadedImage" src="" alt="Uploaded Image" style="display: none;">
+    </div>
+
+    <div class="inner-container">
+      <h2>Algorithm Parameters</h2>
+      <div class="algorithm-container">
+      <label for="algorithmSelect">Select algorithm:</label>
+      <select id="algorithmSelect" class="dropdown">
+        <option value="none">Choose an option</option>
+        <option value="svm">SVM</option>
+        <option value="rf">RF</option>
+        <option value="cnn">CNN</option>
+      </select>
+      </div>
+    
+
+      <div id="svmParams" class="parameter-container" style="display: none;">
+        <label for="customDropdownSVM">Select configuration:</label>
+        <select id="customDropdownSVM">
+          <option value="none">Choose configuration</option>
+          <option value="best">SVC (kernel='linear', C=100, gamma=10)</option>
+          <option value="worst">SVC (kernel='linear', C=10, gamma=10)</option>
+        </select><br>
+      </div>
+
+      
+      <div id="rfParams" class="parameter-container" style="display: none;">
+        <label for="customDropdownRF">Select configuration:</label>
+        <select id="customDropdownRF">
+          <option value="none">Choose configuration</option>
+          <option value="best">RandomForestClassifier(n_estimators=120, min_samples_leaf=10, max_depth=5)</option>
+          <option value="worst">RandomForestClassifier(n_estimators=200, min_samples_leaf=10, max_depth=5)</option>
+        </select><br>
+      </div>
+
+      <div id="cnnParams" class="parameter-container" style="display: none;">
+        <label for="customDropdownCNN">Select configuration:</label>
+        <select id="customDropdownCNN">
+          <option value="none">Choose configuration</option>
+          <option value="best">CNN - 9-layer depth with epochs = 15, learning rate = 0.001</option>
+          <option value="worst">CNN - 5-layer depth, epochs = 25, learning rate = 0.0005</option>
+        </select><br>
+      </div>
+
+
+        <label for="predictBtn" class="btn">Predict</label>
+        <input type="button" id="predictBtn" style="display: none;"> 
+
+
+    </div>
+
+    <div class="inner-container">
+      <h2>Prediction Results</h2>
+      <p id="predictionAccuracy"></p>
+    </div>
+    </div>
+  
+
+<script src="../static/script.js"></script>
+</body>
+</html>
